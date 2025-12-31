@@ -9,7 +9,7 @@ const server = http.createServer(app);
 const io = new Server(server);
 
 // --- CONFIGURATION ---
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const dbURI = "mongodb+srv://RafiLeVrai:Portugal.83@cluster0.wzhesfi.mongodb.net/webblox?retryWrites=true&w=majority";
 
 // Connexion MongoDB Atlas
@@ -82,3 +82,4 @@ const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
     console.log(`🚀 Serveur lancé sur le port ${PORT}`);
 });
+

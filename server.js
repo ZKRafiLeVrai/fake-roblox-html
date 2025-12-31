@@ -76,4 +76,9 @@ function getPlayersInRoom(roomId) {
     return roomPlayers;
 }
 
-server.listen(PORT, () => console.log(`🚀 Serveur : http://localhost:${PORT}`));
+
+// Remplace server.listen(3000...) par :
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => {
+    console.log(`🚀 Serveur lancé sur le port ${PORT}`);
+});

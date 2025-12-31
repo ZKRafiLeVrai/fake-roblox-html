@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Web-Blox 2025</title>
+    <style>
+        body { margin: 0; overflow: hidden; font-family: 'Segoe UI', Tahoma, sans-serif; background: #000; }
+        #overlay { position: fixed; inset: 0; background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); 
+                   display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 100; color: white; }
+        .menu-card { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); padding: 40px; border-radius: 20px; 
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); text-align: center; }
+        .btn { padding: 12px 30px; background: #ff4757; border: none; color: white; cursor: pointer; border-radius: 50px; 
+               font-weight: bold; font-size: 1.1em; transition: 0.3s; margin-top: 20px; width: 100%; }
+        .btn:hover { background: #ff6b81; transform: scale(1.05); }
+        input, select { padding: 12px; margin: 10px 0; border-radius: 8px; border: none; width: 100%; box-sizing: border-box; }
+        
+        /* UI du jeu */
+        #gui { position: absolute; top: 20px; left: 20px; z-index: 10; display: none; pointer-events: none; }
+        #chat { position: absolute; bottom: 20px; left: 20px; width: 300px; max-height: 200px; 
+                background: rgba(0,0,0,0.6); color: white; border-radius: 10px; padding: 15px; 
+                display: none; flex-direction: column; gap: 5px; overflow-y: auto; pointer-events: none; }
+        .chat-msg { background: rgba(255,255,255,0.1); padding: 5px 10px; border-radius: 5px; font-size: 0.9em; }
+        #crosshair { position: fixed; top: 50%; left: 50%; width: 6px; height: 6px; background: white; border-radius: 50%; transform: translate(-50%, -50%); pointer-events: none; }
+    </style>
+</head>
+<body>
+
+<div id="overlay">
+    <div class="menu-card">
+        <h1 style="font-size: 3em; margin-bottom: 10px;">WEB-BLOX</h1>
+        <p style="margin-bottom: 30px; opacity: 0.8;">Crée ton monde et joue avec tes amis</p>
+        <input type="text" id="username" placeholder="Pseudo...">
+        <select id="gameSelect">
+            <option value="main">🌍 Monde Principal</option>
+            <option value="obby">🏁 Le Parcours (Obby)</option>
+            <option value="sandbox">🏗️ Mode Créatif</option>
+        </select>
+        <button class="btn" onclick="window.launch()">REJOINDRE LE SERVEUR</button>
+    </div>
+</div>
+
+<div id="crosshair"></div>
+<div id="gui">
+    <div style="background: rgba(0,0,0,0.8); padding: 10px 20px; border-radius: 50px; color: white;">
+        <b>En ligne:</b> <span id="pCount">1</span> | <b>Color:</b> <input type="color" id="blockColor" value="#2ecc71" style="width:30px; padding:0; height:20px; vertical-align:middle; cursor:pointer;">
+    </div>
+</div>
+
+<div id="chat"></div>
+
+<script type="importmap">
+    { "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }
+</script>
+<script type="module" src="script.js"></script>
+</body>
+</html>
